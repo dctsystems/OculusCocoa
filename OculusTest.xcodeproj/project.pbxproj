@@ -14,6 +14,10 @@
 		3C62FDFA1E9CD9810058CACC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C62FDF81E9CD9810058CACC /* Main.storyboard */; };
 		3C62FE051E9CD9810058CACC /* OculusTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C62FE041E9CD9810058CACC /* OculusTestTests.m */; };
 		3C62FE101E9CD9810058CACC /* OculusTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C62FE0F1E9CD9810058CACC /* OculusTestUITests.m */; };
+		3C62FE1F1E9CDA570058CACC /* OculusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C62FE1E1E9CDA570058CACC /* OculusView.m */; };
+		3C62FE221E9CDBF50058CACC /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C62FE211E9CDBF50058CACC /* OpenGL.framework */; };
+		3C62FE241E9CDC310058CACC /* LibOVR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C62FE231E9CDC310058CACC /* LibOVR.framework */; };
+		3C62FE271E9D04A90058CACC /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C62FE261E9D04A90058CACC /* TestScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C4B033B1EAF641B009080B2 /* OculusTest.profdata */ = {isa = PBXFileReference; lastKnownFileType = file; path = OculusTest.profdata; sourceTree = "<group>"; };
 		3C62FDEA1E9CD9810058CACC /* OculusTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OculusTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C62FDED1E9CD9810058CACC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C62FDEE1E9CD9810058CACC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,6 +54,12 @@
 		3C62FE0B1E9CD9810058CACC /* OculusTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OculusTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C62FE0F1E9CD9810058CACC /* OculusTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OculusTestUITests.m; sourceTree = "<group>"; };
 		3C62FE111E9CD9810058CACC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C62FE1D1E9CDA570058CACC /* OculusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OculusView.h; sourceTree = "<group>"; };
+		3C62FE1E1E9CDA570058CACC /* OculusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OculusView.m; sourceTree = "<group>"; };
+		3C62FE211E9CDBF50058CACC /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		3C62FE231E9CDC310058CACC /* LibOVR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LibOVR.framework; path = ../../../Library/Frameworks/LibOVR.framework; sourceTree = "<group>"; };
+		3C62FE251E9D04A90058CACC /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
+		3C62FE261E9D04A90058CACC /* TestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C62FE241E9CDC310058CACC /* LibOVR.framework in Frameworks */,
+				3C62FE221E9CDBF50058CACC /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C4B033A1EAF641B009080B2 /* OptimizationProfiles */ = {
+			isa = PBXGroup;
+			children = (
+				3C4B033B1EAF641B009080B2 /* OculusTest.profdata */,
+			);
+			path = OptimizationProfiles;
+			sourceTree = "<group>";
+		};
 		3C62FDE11E9CD9810058CACC = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +104,8 @@
 				3C62FE031E9CD9810058CACC /* OculusTestTests */,
 				3C62FE0E1E9CD9810058CACC /* OculusTestUITests */,
 				3C62FDEB1E9CD9810058CACC /* Products */,
+				3C62FE201E9CDBF40058CACC /* Frameworks */,
+				3C4B033A1EAF641B009080B2 /* OptimizationProfiles */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,10 +126,14 @@
 				3C62FDEE1E9CD9810058CACC /* AppDelegate.m */,
 				3C62FDF31E9CD9810058CACC /* ViewController.h */,
 				3C62FDF41E9CD9810058CACC /* ViewController.m */,
+				3C62FE251E9D04A90058CACC /* TestScene.h */,
+				3C62FE261E9D04A90058CACC /* TestScene.m */,
 				3C62FDF61E9CD9810058CACC /* Assets.xcassets */,
 				3C62FDF81E9CD9810058CACC /* Main.storyboard */,
 				3C62FDFB1E9CD9810058CACC /* Info.plist */,
 				3C62FDF01E9CD9810058CACC /* Supporting Files */,
+				3C62FE1D1E9CDA570058CACC /* OculusView.h */,
+				3C62FE1E1E9CDA570058CACC /* OculusView.m */,
 			);
 			path = OculusTest;
 			sourceTree = "<group>";
@@ -135,6 +162,15 @@
 				3C62FE111E9CD9810058CACC /* Info.plist */,
 			);
 			path = OculusTestUITests;
+			sourceTree = "<group>";
+		};
+		3C62FE201E9CDBF40058CACC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3C62FE231E9CDC310058CACC /* LibOVR.framework */,
+				3C62FE211E9CDBF50058CACC /* OpenGL.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,7 +308,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C62FE271E9D04A90058CACC /* TestScene.m in Sources */,
 				3C62FDF51E9CD9810058CACC /* ViewController.m in Sources */,
+				3C62FE1F1E9CDA570058CACC /* OculusView.m in Sources */,
 				3C62FDF21E9CD9810058CACC /* main.m in Sources */,
 				3C62FDEF1E9CD9810058CACC /* AppDelegate.m in Sources */,
 			);
@@ -362,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -404,7 +442,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -414,8 +452,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G6H5UN773F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = OculusTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.dctsystems.OculusTest;
@@ -427,8 +470,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_USE_OPTIMIZATION_PROFILE = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = G6H5UN773F;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = OculusTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = uk.co.dctsystems.OculusTest;
@@ -509,6 +557,7 @@
 				3C62FE161E9CD9810058CACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3C62FE171E9CD9810058CACC /* Build configuration list for PBXNativeTarget "OculusTestTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +566,7 @@
 				3C62FE191E9CD9810058CACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3C62FE1A1E9CD9810058CACC /* Build configuration list for PBXNativeTarget "OculusTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +575,7 @@
 				3C62FE1C1E9CD9810058CACC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
