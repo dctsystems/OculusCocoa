@@ -10,11 +10,14 @@
 #include <LibOVR/OVR_CAPI.h>
 #include <LibOVR/OVR_CAPI_GL.h>
 
+
+@class OculusView;
+
 @protocol OculusViewDelegate < NSObject >
 
--(void)initScene:(NSView *) sender;     //Called once
-- (void)prepFrame:(NSView *) sender;    //Called at start of frame
-- (void)drawScene:(NSView *) sender;    //Called once per eye per frame
+-(void)initScene:(OculusView *) sender;     //Called once
+- (void)prepFrame:(OculusView *) sender;    //Called at start of frame
+- (void)drawScene:(OculusView *) sender;    //Called once per eye per frame
 
 @end
 

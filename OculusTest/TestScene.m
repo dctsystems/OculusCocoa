@@ -93,7 +93,7 @@ void draw_box(float xsz, float ysz, float zsz, float norm_sign)
     glFrontFace(GL_CCW);
     glPopMatrix();
 }
--(void)initScene:(NSView *) sender;
+-(void)initScene:(OculusView *) sender;
 {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
@@ -114,13 +114,13 @@ void draw_box(float xsz, float ysz, float zsz, float norm_sign)
     
 }
 
-- (void)prepFrame:(NSView *) sender
+- (void)prepFrame:(OculusView *) sender
 {
     
 }
 
 
-- (void)drawScene:(NSView *) sender;
+- (void)drawScene:(OculusView *) sender;
 {
     int i;
     float grey[] = {0.8, 0.8, 0.8, 1};
