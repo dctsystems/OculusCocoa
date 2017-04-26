@@ -116,67 +116,85 @@ void draw_box(float xsz, float ysz, float zsz, float norm_sign)
 
 - (void)prepFrame:(OculusView *) sender
 {
-    
+    if(!displayList)
+    {
+        displayList= glGenLists(1);
+        glNewList(displayList,GL_COMPILE);
+        
+        int i;
+        float grey[] = {0.8, 0.8, 0.8, 1};
+        float col[] = {0, 0, 0, 1};
+        float lpos[][4] = {
+            {-8, 2, 10, 1},
+            {0, 15, 0, 1}
+        };
+        float lcol[][4] = {
+            {0.8, 0.8, 0.8, 1},
+            {0.4, 0.3, 0.3, 1}
+        };
+        
+        for(i=0; i<2; i++) {
+            glLightfv(GL_LIGHT0 + i, GL_POSITION, lpos[i]);
+            glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, lcol[i]);
+        }
+        
+        glMatrixMode(GL_MODELVIEW);
+        
+        glPushMatrix();
+        glTranslatef(0, 10, 0);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, grey);
+        glBindTexture(GL_TEXTURE_2D, chess_tex);
+        glEnable(GL_TEXTURE_2D);
+        draw_box(30, 20, 30, -1.0);
+        glDisable(GL_TEXTURE_2D);
+        glPopMatrix();
+        
+        for(i=0; i<4; i++) {
+            glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, grey);
+            glPushMatrix();
+            glTranslatef(i & 1 ? 5 : -5, 1, i & 2 ? -5 : 5);
+            draw_box(0.5, 2, 0.5, 1.0);
+            glPopMatrix();
+            
+            col[0] = i & 1 ? 1.0 : 0.3;
+            col[1] = i == 0 ? 1.0 : 0.3;
+            col[2] = i & 2 ? 1.0 : 0.3;
+            glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, col);
+            
+            glPushMatrix();
+            if(i & 1) {
+                glTranslatef(0, 0.25, i & 2 ? 2 : -2);
+            } else {
+                glTranslatef(i & 2 ? 2 : -2, 0.25, 0);
+            }
+            draw_box(0.5, 0.5, 0.5, 1.0);
+            glPopMatrix();
+        }
+        
+        col[0] = 1;
+        col[1] = 1;
+        col[2] = 0.4;
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, col);
+        draw_box(0.05, 1.2, 6, 1.0);
+        draw_box(6, 1.2, 0.05, 1.0);
+        glEndList();
+    }
+}
+
+
+-(void)invalidateCache
+{
+    if(displayList)
+    {
+        glDeleteLists(displayList,1);
+        displayList=0;
+    }
 }
 
 
 - (void)drawScene:(OculusView *) sender;
 {
-    int i;
-    float grey[] = {0.8, 0.8, 0.8, 1};
-    float col[] = {0, 0, 0, 1};
-    float lpos[][4] = {
-        {-8, 2, 10, 1},
-        {0, 15, 0, 1}
-    };
-    float lcol[][4] = {
-        {0.8, 0.8, 0.8, 1},
-        {0.4, 0.3, 0.3, 1}
-    };
     
-    for(i=0; i<2; i++) {
-        glLightfv(GL_LIGHT0 + i, GL_POSITION, lpos[i]);
-        glLightfv(GL_LIGHT0 + i, GL_DIFFUSE, lcol[i]);
-    }
-    
-    glMatrixMode(GL_MODELVIEW);
-    
-    glPushMatrix();
-    glTranslatef(0, 10, 0);
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, grey);
-    glBindTexture(GL_TEXTURE_2D, chess_tex);
-    glEnable(GL_TEXTURE_2D);
-    draw_box(30, 20, 30, -1.0);
-    glDisable(GL_TEXTURE_2D);
-    glPopMatrix();
-    
-    for(i=0; i<4; i++) {
-        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, grey);
-        glPushMatrix();
-        glTranslatef(i & 1 ? 5 : -5, 1, i & 2 ? -5 : 5);
-        draw_box(0.5, 2, 0.5, 1.0);
-        glPopMatrix();
-        
-        col[0] = i & 1 ? 1.0 : 0.3;
-        col[1] = i == 0 ? 1.0 : 0.3;
-        col[2] = i & 2 ? 1.0 : 0.3;
-        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, col);
-        
-        glPushMatrix();
-        if(i & 1) {
-            glTranslatef(0, 0.25, i & 2 ? 2 : -2);
-        } else {
-            glTranslatef(i & 2 ? 2 : -2, 0.25, 0);
-        }
-        draw_box(0.5, 0.5, 0.5, 1.0);
-        glPopMatrix();
-    }
-    
-    col[0] = 1;
-    col[1] = 1;
-    col[2] = 0.4;
-    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, col);
-    draw_box(0.05, 1.2, 6, 1.0);
-    draw_box(6, 1.2, 0.05, 1.0);
+    glCallList(displayList);
 }
 @end

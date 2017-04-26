@@ -12,5 +12,6 @@
 @interface TestScene : NSObject <OculusViewDelegate>
 {
      unsigned int chess_tex;
+    GLuint displayList;
 }
 @end
